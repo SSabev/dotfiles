@@ -1,68 +1,37 @@
-" required for pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
+set nocompatible
+
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+ 
+set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
-
-set smartindent
+ 
 syntax on
-         
-set nocompatible "screw vi
-
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
-
-set ofu=syntaxcomplete#Complete
-
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-
-set number " show line numbers
-set colorcolumn=80 " 80 width colum
-
-
-set encoding=utf-8
-set scrolloff=5 "minmax lines to keep above/below the curson
-set showcmd "off by default in Unix
-set hidden
-
-set wildmenu "wildmenu, better autocomplete of commands
-set wildmode=list:longest
-
-set ttyfast
-set backspace=indent,eol,start
-set laststatus=2
-set relativenumber
-set undofile
-
-
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
+set number
 set hlsearch
+set showmatch
+set incsearch
+set nowrap
+set autoindent
+set history=1000
+set cursorline
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
 
-nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
+" Nerdtree
+autocmd vimenter * NERDTree
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=1
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
+let NERDTreeKeepTreeInNewTab=1
+let g:nerdtree_tabs_open_on_gui_startup=0
+ 
 
-
-" enable 256 colours
-set t_Co=256
-:colorscheme zenburn
-
-
-:set completeopt=longest,menuone
-:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-  inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-    \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-
-nmap <silent> <C-D> :NERDTreeToggle<CR>
-
+set background=dark
+colorscheme zenburn
