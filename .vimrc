@@ -9,6 +9,7 @@ filetype plugin indent on
  
 syntax on
 set ignorecase
+set backspace=indent,eol,start 
 set smartcase
 set number
 set hlsearch
